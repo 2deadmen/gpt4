@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { OpenAIClient, AzureKeyCredential } from '@azure/openai'
 import './style.css'; 
 
 const Homepage = () => {
+  const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
+const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+console.log(azureApiKey)
+const messages =[]
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -14,13 +19,20 @@ const Homepage = () => {
     if (!inputText) return;
 
     setIsLoading(true);
-
+    let temp={role:"user",content:inputText}
+    messages.push(temp)
     try {
       // Simulating API request delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
+  const deploymentId = "gpt-35-turbo";
+  const result = await client.getChatCompletions(deploymentId, messages);
+
+  for (const choice of result.choices) {
+    console.log(choice.message);
+  }
       setOutputText("Generated response will be here.");
     } catch (error) {
-      console.error('Error generating response:', error);
+      console.log('Error generating response:', error);
     } finally {
       setIsLoading(false);
     }
