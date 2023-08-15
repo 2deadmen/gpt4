@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gpt4/static/css/main.81a2ed43.css",
+    "main.js": "/gpt4/static/js/main.ed21d533.js",
+    "index.html": "/gpt4/index.html",
+    "main.81a2ed43.css.map": "/gpt4/static/css/main.81a2ed43.css.map",
+    "main.ed21d533.js.map": "/gpt4/static/js/main.ed21d533.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81a2ed43.css",
+    "static/js/main.ed21d533.js"
+  ]
+}
