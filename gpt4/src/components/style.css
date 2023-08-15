@@ -1,0 +1,46 @@
+/* GPTFrontend.css */
+
+.gpt-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gpt-header {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .gpt-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .gpt-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .gpt-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .gpt-response {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  
+  /* Add more styles as needed */
+  
