@@ -4,7 +4,7 @@ import './style.css';
 
 const Homepage = () => {
   const endpoint = "https://greninjagpt4.openai.azure.com/" ;
-const azureApiKey = "ff49d8ccf6534ea4b72b50d04c1eb06d" ;
+const azureApiKey = "" ;
 console.log(azureApiKey)
 var messages =[]
   const [inputText, setInputText] = useState('');
