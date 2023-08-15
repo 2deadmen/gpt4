@@ -1,11 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-import Homepage from './components/Homepage';
+import { useState } from "react";
+import "./App.css";
+import Homepage from "./components/Homepage";
 
 function App() {
+  const [password, setpassword] = useState("");
+  const handleChange = (e) => {
+    setpassword(e.target.value);
+    console.log(password);
+    if (password === "69420") {
+      setispasswordTrue(true);
+    }
+  };
+
+  const [ispasswordTrue, setispasswordTrue] = useState(false);
   return (
     <div className="App">
-      <Homepage/>
+      {ispasswordTrue ? (
+        <Homepage />
+      
+      ) : (
+        <input
+        type="text"
+        onChange={handleChange}
+        name="text"
+        class="input"
+        placeholder="Type your text"
+      ></input>
+        
+      )}
     </div>
   );
 }
