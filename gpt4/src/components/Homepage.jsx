@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'; // Import your stylesheet
+import './style.css'; 
 
 const Homepage = () => {
   const [inputText, setInputText] = useState('');
