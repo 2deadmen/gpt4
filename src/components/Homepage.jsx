@@ -3,10 +3,10 @@ import { OpenAIClient, AzureKeyCredential } from '@azure/openai'
 import './style.css'; 
 
 const Homepage = () => {
-  const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+  const endpoint = "https://greninjagpt4.openai.azure.com/" ;
+const azureApiKey = "ff49d8ccf6534ea4b72b50d04c1eb06d" ;
 console.log(azureApiKey)
-const messages =[]
+var messages =[]
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -24,17 +24,20 @@ const messages =[]
     try {
       // Simulating API request delay
       const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-  const deploymentId = "gpt-35-turbo";
+  const deploymentId = "GreninjaAi";
   const result = await client.getChatCompletions(deploymentId, messages);
 
   for (const choice of result.choices) {
     console.log(choice.message);
+    messages.push(choice.message)
+setOutputText(choice.message.content)
   }
-      setOutputText("Generated response will be here.");
+     ;
     } catch (error) {
       console.log('Error generating response:', error);
     } finally {
       setIsLoading(false);
+      console.log(messages)
     }
   };
 
